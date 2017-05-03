@@ -1,0 +1,152 @@
+.container {
+  max-width: 1024px; }
+
+.topArtistDetails {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: flex-start; }
+
+.search-container {
+  position: relative;
+  top: 150px;
+  width: 50%;
+  margin: auto;
+  text-align: center; }
+  .search-container h2 {
+    color: white; }
+
+.input {
+  width: 100%;
+  margin: auto; }
+  .input input {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    background-color: inherit;
+    border: 3px solid white;
+    outline: none;
+    padding: 5px;
+    color: white;
+    font-size: 16px; }
+  .input button {
+    width: 100%;
+    max-width: 200px;
+    margin: auto;
+    margin-top: 10px;
+    background-color: inherit;
+    border: 3px solid white;
+    outline: none;
+    padding: 10px;
+    color: white;
+    font-size: 16px; }
+
+.artistDetails {
+  width: 30%;
+  margin: 10px; }
+  .artistDetails img {
+    width: 100%;
+    height: 100%;
+    filter: brightness(0.6); }
+
+.myNavBar {
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  background-color: black; }
+
+.myHeader {
+  margin-top: 80px;
+  width: 100%;
+  height: 400px;
+  background: url("../img/bg2.jpg");
+  background-position: center;
+  background-size: cover; }
+
+.artistSearch {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; }
+
+.artistSearchDetails {
+  display: flex;
+  flex-direction: column;
+  width: 30%; }
+  .artistSearchDetails img {
+    width: 100%; }
+
+#artistSearchName {
+  margin: 10px; }
+
+#name {
+  width: 100%; }
+
+#artistName {
+  z-index: 1;
+  position: relative;
+  top: 50%;
+  font-size: 20px;
+  color: white;
+  width: 100%;
+  text-align: center; }
+
+#myCarousel {
+  margin-top: -20px; }
+
+#playbutton {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  margin: auto;
+  top: 18em; }
+  #playbutton #play {
+    width: 100%;
+    height: 100%;
+    border: solid 4px white;
+    border-radius: 50%;
+    background: inherit;
+    box-shadow: 2px 3px 14px 0px #332c2c;
+    outline: none; }
+    #playbutton #play:hover img {
+      filter: brightness(0.01); }
+    #playbutton #play img {
+      width: 50%;
+      display: block;
+      margin: auto; }
+
+@media screen and (max-width: 990px) {
+  #playbutton {
+    top: 14em; } }
+@media screen and (max-width: 700px) {
+  #playbutton {
+    top: 17em; }
+
+  .artistDetails {
+    width: 45%; }
+
+  .artistSearchDetails {
+    width: 45%; } }
+@media screen and (max-width: 500px) {
+  #playbutton {
+    top: 20em; }
+
+  .topArtistDetails {
+    justify-content: center; }
+
+  .artistDetails {
+    width: 100%; }
+
+  #artistName {
+    font-size: 32px; }
+
+  .artistSearch {
+    justify-content: center; }
+
+  .artistSearchDetails {
+    width: 100%; } }
+
+/*# sourceMappingURL=styles.css.map */
