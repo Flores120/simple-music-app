@@ -2,33 +2,73 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- React  -->
+    <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+    <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <script src="js/scripts.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/styles.css">
+
     <title>Music App</title>
   </head>
   <body>
-    <div class="myNavBar">
-      <nav>
+    <div id="app"></div>
+    <script type="text/babel">
+      var apiKey = "fca9515930a01d9ca28257e94bef596b";
+      var rest = new XMLHttpRequest();
+      var topArtist = rest;
+      var call = "http://ws.audioscrobbler.com/2.0/?method=";
 
-      </nav>
-    </div>
-    <div class="myHeader">
-      <div class="search-container">
-        <h2>Search Your Artist</h2>
-        <div class="input">
-            <input id="artistSearch" type="text"><br>
-            <button id="submitArtist">Enter</button>
+      topArtist.open("GET", call + "geo.gettopartists&country=spain&api_key=" + apiKey + "&format=json", false);
+      topArtist.send();
+      topArtist = topArtist.response
+      topArtist = JSON.parse(topArtist);
+
+      const artist = [];
+        for (var i = 0; i < 20; i++) {
+      artist.push(topArtist.topartists.artist[i]);
+    }
+  const showArtist = artist.map((nameOfArtist) =>
+  <div className="artistDetails">
+    <div id="artistName">{nameOfArtist.name}</div>
+    <div id='artistImage'><img id="img" src={nameOfArtist.image[3]['#text']}/></div>
+  </div>
+);
+
+    console.log(artist);
+      const myContainer = (
+        <div clasName = "body">
+        <div className="myNavBar">
+          <nav></nav>
         </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="artistSearch"></div>
-      <h1>Top Artist</h1>
-      <div class="topArtistDetails">
-      </div>
-    </div>
+        <div className="myHeader">
+          <div className="search-container">
+            <h2>Search Your Artist</h2>
+            <div className="input">
+                <input id="artistSearch" type="text"/>
+                <button id="submitArtist">Enter</button>
+            </div>
+          </div>
+        </div>
+        <div className="container">
+          <div className="artistSearch"></div>
+          <h1>Top Artist</h1>
+          <div className="topArtistDetails">
+          {showArtist}
+          </div>
+        </div>
+        </div>
+      );
+      ReactDOM.render(myContainer, document.getElementById('app'));
+    </script>
   </body>
 </html>
